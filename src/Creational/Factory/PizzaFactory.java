@@ -2,7 +2,7 @@ package Creational.Factory;
 
 public class PizzaFactory {
 
-    public static Pizza getPizza(PizzaType type){
+    public Pizza getPizza(PizzaType type){
         switch (type){
             case ONION:
                 return new OnionPizza();
