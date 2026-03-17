@@ -7,6 +7,7 @@ public class Driver {
         System.out.println("\n Welcome to Pizza factory \n");
 
         PizzaFactory factory = new PizzaFactory();
+
         Pizza tomatoPizza = factory.getPizza(PizzaType.TOMATO);
         Pizza onionPizza = factory.getPizza(PizzaType.ONION);
         Pizza margaritaPizza = factory.getPizza(PizzaType.MARGARITA);
