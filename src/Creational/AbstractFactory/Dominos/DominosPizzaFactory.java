@@ -1,13 +1,13 @@
 package Creational.AbstractFactory.Dominos;
 
-import Creational.AbstractFactory.IPizza;
-import Creational.AbstractFactory.IPizzaFactory;
+import Creational.AbstractFactory.Pizza;
+import Creational.AbstractFactory.PizzaFactory;
 import Creational.AbstractFactory.PizzaType;
 
-public class DominosPizzaFactory implements IPizzaFactory {
+public class DominosPizzaFactory implements PizzaFactory {
 
     @Override
-    public IPizza getPizza(PizzaType type){
+    public Pizza getPizza(PizzaType type){
 
         return switch (type) {
             case ONION -> new OnionPizza();

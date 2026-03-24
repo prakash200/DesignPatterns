@@ -1,16 +1,13 @@
 package Creational.AbstractFactory.PizzaHut;
 
-import Creational.AbstractFactory.PizzaHut.ChickenPizza;
-import Creational.AbstractFactory.PizzaHut.OnionPizza;
-import Creational.AbstractFactory.PizzaHut.TomatoPizza;
-import Creational.AbstractFactory.IPizza;
-import Creational.AbstractFactory.IPizzaFactory;
+import Creational.AbstractFactory.Pizza;
+import Creational.AbstractFactory.PizzaFactory;
 import Creational.AbstractFactory.PizzaType;
 
-public class PizzaHutPizzaFactory implements IPizzaFactory {
+public class PizzaHutPizzaFactory implements PizzaFactory {
 
     @Override
-    public IPizza getPizza(PizzaType type){
+    public Pizza getPizza(PizzaType type){
         return switch (type) {
             case ONION -> new OnionPizza();
             case TOMATO -> new TomatoPizza();

@@ -1,6 +1,6 @@
 package Structural.Adapter.LegacyCode;
 
-public interface IPaymentProcessor {
+public interface PaymentProcessor {
 
     String pay(Integer amount);
 }

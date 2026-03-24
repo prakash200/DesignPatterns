@@ -1,6 +1,6 @@
 package Structural.Adapter.PaymentGateway;
 
-public interface IPaymentProcessor {
+public interface PaymentProcessor {
 
     String pay(Integer amount);
 }

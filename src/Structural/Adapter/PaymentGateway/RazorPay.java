@@ -1,11 +1,9 @@
 package Structural.Adapter.PaymentGateway;
 
-import Structural.Adapter.PaymentGateway.IPaymentProcessor;
-
-public class RazorPay implements IPaymentProcessor {
+public class RazorPay implements PaymentProcessor {
 
     @Override
     public String pay(Integer amount){
-        return "Payment of " + amount + "Done via RazorPay";
+        return "Payment of " + amount + " Done via RazorPay";
     }
 }

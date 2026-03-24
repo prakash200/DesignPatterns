@@ -1,6 +1,6 @@
 package Structural.Adapter.LegacyCode;
 
-public class AdapterPayment implements IPaymentProcessor{
+public class AdapterPayment implements PaymentProcessor {
 
     private final Payment payment;
 

@@ -1,9 +1,6 @@
 package Structural.Facade.Services;
-import Structural.Facade.Services.IMenu;
 
-import java.awt.*;
-
-public class VegMenu implements IMenu {
+public class VegMenu implements Menu {
 
     @Override
     public String getMenu(){

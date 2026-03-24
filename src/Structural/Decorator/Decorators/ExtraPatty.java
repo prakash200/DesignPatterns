@@ -1,10 +1,10 @@
 package Structural.Decorator.Decorators;
 
-import Structural.Decorator.Burgers.IBurger;
+import Structural.Decorator.Burgers.Burger;
 
 public class ExtraPatty extends BurgerDecorator {
 
-    public ExtraPatty(IBurger burger){
+    public ExtraPatty(Burger burger){
         super(burger);
     }
 

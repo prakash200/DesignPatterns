@@ -8,7 +8,7 @@ public class Driver {
         // Payment (Legacy Code) [ Adaptee ]
         // IPaymentProcessor [ Target ]
         // AdapterPayment [ Adapter ] , which implements Target interface and call legacy code
-        IPaymentProcessor paymentProcessor = new AdapterPayment(new Payment());
+        PaymentProcessor paymentProcessor = new AdapterPayment(new Payment());
         System.out.println(paymentProcessor.pay(100));
     }
 }

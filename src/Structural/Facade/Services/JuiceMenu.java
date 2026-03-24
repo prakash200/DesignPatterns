@@ -1,6 +1,6 @@
 package Structural.Facade.Services;
 
-public class JuiceMenu implements IMenu{
+public class JuiceMenu implements Menu {
 
     @Override
     public String getMenu(){

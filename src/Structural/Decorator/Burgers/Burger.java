@@ -1,6 +1,6 @@
 package Structural.Decorator.Burgers;
 
-public interface IBurger {
+public interface Burger {
 
     String description();
     Integer getCost();

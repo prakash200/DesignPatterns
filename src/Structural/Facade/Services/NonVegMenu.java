@@ -1,6 +1,6 @@
 package Structural.Facade.Services;
 
-public class NonVegMenu implements IMenu{
+public class NonVegMenu implements Menu {
 
     @Override
     public String getMenu(){

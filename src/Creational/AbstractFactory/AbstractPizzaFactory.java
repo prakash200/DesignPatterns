@@ -5,7 +5,7 @@ import Creational.AbstractFactory.PizzaHut.PizzaHutPizzaFactory;
 
 public class AbstractPizzaFactory {
 
-    public static IPizzaFactory getPizzaFactory(StoreType type){
+    public static PizzaFactory getPizzaFactory(StoreType type){
 
         return switch (type) {
             case DOMINOS -> new DominosPizzaFactory();

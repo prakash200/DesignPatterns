@@ -1,8 +1,8 @@
 package Creational.AbstractFactory.Dominos;
 
-import Creational.AbstractFactory.IPizza;
+import Creational.AbstractFactory.Pizza;
 
-public class TomatoPizza implements IPizza {
+public class TomatoPizza implements Pizza {
 
     @Override
     public String getName(){

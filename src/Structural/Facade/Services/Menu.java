@@ -1,5 +1,5 @@
 package Structural.Facade.Services;
 
-public interface IMenu {
+public interface Menu {
     String getMenu();
 }

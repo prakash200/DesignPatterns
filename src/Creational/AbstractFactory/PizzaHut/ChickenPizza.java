@@ -1,8 +1,8 @@
 package Creational.AbstractFactory.PizzaHut;
 
-import Creational.AbstractFactory.IPizza;
+import Creational.AbstractFactory.Pizza;
 
-public class ChickenPizza implements IPizza {
+public class ChickenPizza implements Pizza {
 
     @Override
     public String getName(){

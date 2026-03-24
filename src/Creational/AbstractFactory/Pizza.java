@@ -1,5 +1,5 @@
 package Creational.AbstractFactory;
 
-public interface IPizza {
+public interface Pizza {
     String getName();
 }

@@ -1,6 +1,6 @@
 package Structural.Decorator.Burgers;
 
-public class ChickenBurger implements IBurger{
+public class ChickenBurger implements Burger {
 
     @Override
     public String description(){

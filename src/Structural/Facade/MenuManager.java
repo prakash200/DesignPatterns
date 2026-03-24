@@ -1,14 +1,14 @@
 package Structural.Facade;
 
-import Structural.Facade.Services.IMenu;
+import Structural.Facade.Services.Menu;
 
 public class MenuManager {
 
-    private final IMenu vegMenu;
-    private final IMenu nonVegMenu;
-    private final IMenu juiceMenu;
+    private final Menu vegMenu;
+    private final Menu nonVegMenu;
+    private final Menu juiceMenu;
 
-    public MenuManager(IMenu vegMenu, IMenu nonVegMenu, IMenu juiceMenu){
+    public MenuManager(Menu vegMenu, Menu nonVegMenu, Menu juiceMenu){
         this.vegMenu = vegMenu;
         this.nonVegMenu = nonVegMenu;
         this.juiceMenu = juiceMenu;
