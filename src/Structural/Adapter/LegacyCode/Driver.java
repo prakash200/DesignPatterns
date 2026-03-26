@@ -6,7 +6,7 @@ public class Driver {
         System.out.println("\nAdapter Pattern Legacy code Example\n");
 
         // Payment (Legacy Code) [ Adaptee ]
-        // IPaymentProcessor [ Target ]
+        // PaymentProcessor [ Target ]
         // AdapterPayment [ Adapter ] , which implements Target interface and call legacy code
         PaymentProcessor paymentProcessor = new AdapterPayment(new Payment());
         System.out.println(paymentProcessor.pay(100));
