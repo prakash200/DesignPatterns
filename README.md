@@ -42,7 +42,7 @@ public class Singleton {
 ```
 
 Implementation details:
-- `MySingleton.java`: same intent, hold shared state or method, example output to prove single instance.
+- `MySingleton.java`: implements Bill Pugh Singleton pattern for thread-safety without synchronization overhead. Includes commented alternatives (synchronized method, double-checked locking).
 - `Driver.java`: calls `MySingleton.getInstance()` multiple times and verifies object identity.
 
 This pattern demonstrates a centralized shared service object, similar to a logging singleton in applications.
@@ -75,7 +75,7 @@ class PizzaFactory {
 Implementation details:
 - `Pizza.java`: base contract `prepare()` and `getName()`.
 - `PizzaType.java`: enum for type decisions.
-- `PizzaFactory.java`: switch-case returning correct `Pizza` object.
+- `PizzaFactory.java`: modern switch expression for clean, readable type selection.
 - Driver: selects a type and prints result.
 
 This pattern demonstrates how a central factory can select and instantiate pizza types at runtime with minimal client modification.
@@ -101,9 +101,8 @@ class PizzaHutFactory implements AbstractPizzaFactory { ... }
 ```
 
 Implementation details:
-- `AbstractPizzaFactory.java`: factory interface, possibly `getPizza(PizzaType)
-`.
-- `PizzaFactory.java` (client/director) chooses store by `StoreType` and requests pizza.
+- `AbstractPizzaFactory.java`: factory interface, possibly `getPizza(PizzaType)`.
+- `AbstractPizzaFactory.java` (client/director) chooses store by `StoreType` and requests pizza.
 - `StoreType.java`: enum to pick factory.
 - `DominosPizzaFactory` and `PizzaHutPizzaFactory`: returns brand-specific `ChickenPizza`, `OnionPizza`, `TomatoPizza`.
 
@@ -134,7 +133,7 @@ class QueryBuilder {
 
 Implementation details:
 - `Query.java`: hold final SQL string or query properties.
-- `QueryBuilder.java`: methods `select()`, `from()`, `where()`, `orderBy()`, `build()`.
+- `QueryBuilder.java`: methods `select()`, `from()`, `where()`, `groupBy()`, `orderBy()`, `build()`.
 - `Driver.java`: demonstrates fluent API with `new QueryBuilder().select(...)...build()`.
 
 This pattern demonstrates building complex SQL queries safely through a fluent builder API.
@@ -214,11 +213,11 @@ Ideal Structure:
 3. Client calls `MenuManager.showMenu()`.
 
 Implementation details:
-- `MenuManager` has methods like `displayFullMenu()`, `showVeg()`, `showNonVeg()`.
-- Subsystem details are abstracted in relevant classes.
-- `Driver` uses facade for one-step menus.
+- Menu facade: `src/Structural/Facade/MenuLists/MenuManager.java` has methods like `displayFullMenu()`, `showVeg()`, `showNonVeg()`. Subsystem details are abstracted in `Services/` classes.
+- API Gateway facade: `src/Structural/Facade/ApiGateWay/ApiGateWay.java` orchestrates order placement with `UserService`, `OrderService`, `PaymentService`, `NotificationService`, `DeliveryService`.
+- Drivers: `MenuLists/Driver.java` uses facade for one-step menus; `ApiGateWay/Driver.java` demonstrates simplified order placement.
 
-This pattern demonstrates simplifying menu access via a facade to shield frontend from subsystem complexity.
+This pattern demonstrates simplifying menu access via a facade to shield frontend from subsystem complexity, and also shows an API gateway facade for payment and order processing.
 
 ---
 
@@ -275,7 +274,7 @@ Implementation details:
 - `BowlingEvent` stores match state (runs, wicket, overs).
 - `ScoreBoard` (subject) sets events and triggers `update()` on observer list.
 - `OverObserver`, `ScoreObserver`, `WicketObserver` display slices.
-- `Driver` simulates event push and observer update.
+- `Driver` simulates event push and observer update with cricket scoring events.
 
 This pattern demonstrates a subject notifying multiple observers for real-time score updates.
 
@@ -289,6 +288,8 @@ This pattern demonstrates a subject notifying multiple observers for real-time s
    - `java -cp bin Creational.Singleton.Driver`
    - `java -cp bin Creational.Factory.Driver`
    - `java -cp bin Structural.Adapter.PaymentGateway.Driver`
+   - `java -cp bin Structural.Facade.MenuLists.Driver`
+   - `java -cp bin Structural.Facade.ApiGateWay.Driver`
    - `java -cp bin Behavioural.Observer.Driver`
 
 ---
@@ -309,3 +310,4 @@ This pattern demonstrates a subject notifying multiple observers for real-time s
 - This set is intentionally limited and easy to read for newcomers.
 - Recommended next patterns in same structure: `Command`, `TemplateMethod`, `State`, `Composite`, `Proxy`, `Mediator`.
 - Reference books: "Head First Design Patterns" and "Design Patterns: Elements of Reusable Object-Oriented Software" (Gamma et al.).
+- Code uses modern Java features like switch expressions and Bill Pugh Singleton for best practices.
