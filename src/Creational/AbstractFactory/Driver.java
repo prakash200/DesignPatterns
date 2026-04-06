@@ -20,9 +20,9 @@ public class Driver {
 
         PizzaFactory factory1 = AbstractPizzaFactory.getPizzaFactory(StoreType.PIZZAHUT);
 
-        System.out.println(factory.getPizza(PizzaType.ONION).getName());
-        System.out.println(factory.getPizza(PizzaType.TOMATO).getName());
-        System.out.println(factory.getPizza(PizzaType.CHICKEN).getName());
+        System.out.println(factory1.getPizza(PizzaType.ONION).getName());
+        System.out.println(factory1.getPizza(PizzaType.TOMATO).getName());
+        System.out.println(factory1.getPizza(PizzaType.CHICKEN).getName());
 
 
     }

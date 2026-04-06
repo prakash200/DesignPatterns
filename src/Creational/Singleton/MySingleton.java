@@ -4,7 +4,7 @@ public class MySingleton {
 
     // 4) Bill Pugh Singleton [ remember ]
     // JVM does NOT load helper class immediately. It loads only when getInstance is called
-    // Since class loading is synchronous, this complete process is thraed safe
+    // Since class loading is synchronous, this complete process is thread safe
     // This method is designed/improvised by looking in to JVM object creation steps
 
     private MySingleton(){}

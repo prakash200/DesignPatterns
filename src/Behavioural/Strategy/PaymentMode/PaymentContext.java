@@ -1,6 +1,6 @@
-package Behavioural.Strategy;
+package Behavioural.Strategy.PaymentMode;
 
-import Behavioural.Strategy.Payments.PaymentStrategy;
+import Behavioural.Strategy.PaymentMode.Payments.PaymentStrategy;
 
 public class PaymentContext {
     private PaymentStrategy strategy;

@@ -1,4 +1,4 @@
-package Behavioural.Strategy.Payments;
+package Behavioural.Strategy.PaymentMode.Payments;
 
 public class PaypalPayment implements PaymentStrategy{
 

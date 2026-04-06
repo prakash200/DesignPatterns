@@ -1,8 +1,7 @@
-package Behavioural.Strategy;
+package Behavioural.Strategy.PaymentMode;
 
-import Behavioural.Strategy.Payments.CreditCardPayment;
-import Behavioural.Strategy.Payments.PaymentStrategy;
-import Behavioural.Strategy.Payments.UpiPayment;
+import Behavioural.Strategy.PaymentMode.Payments.CreditCardPayment;
+import Behavioural.Strategy.PaymentMode.Payments.UpiPayment;
 
 public class Driver {
 
