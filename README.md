@@ -280,17 +280,66 @@ This pattern demonstrates a subject notifying multiple observers for real-time s
 
 ---
 
+### 3.3 State
+
+Definition:
+- Allows an object to **change its behavior when its internal state changes**.
+- Encapsulates state-specific behavior into separate classes (states), and the context delegates requests to the current state.
+
+Ideal Structure:
+1. `Context` (e.g., `VendingMachine`) holds a reference to a `State`.
+2. `State` interface defines operations (e.g., `selectItem()`, `insertMoney()`, `dispense()`, `cancel()`).
+3. Concrete state classes implement the operations and can transition the context to another state.
+
+Repository Implementation details:
+- `src/Behavioural/State/VendingMachine.java`: context that delegates actions to `MachineState`.
+- `src/Behavioural/State/VendingMachineStates/MachineState.java`: state interface.
+- Concrete states:
+  - `IdleState` → initial state
+  - `SelectedState` → after item selection
+  - `PaymentDoneState` → after payment
+- Transitions happen *inside state classes* using `machine.setState(new NextState())`.
+
+Sample flow (from `src/Behavioural/State/Driver.java`):
+```java
+machine.insertMoney();   // invalid in Idle
+machine.dispense();      // invalid in Idle
+
+machine.selectItem();
+machine.dispense();      // invalid before payment
+machine.insertMoney();
+machine.selectItem();    // invalid after payment
+machine.dispense();
+
+machine.selectItem();
+machine.cancel();
+```
+
+This pattern demonstrates how conditional logic like `if(state==...)` can be replaced with polymorphism and state-driven transitions.
+
+---
+
 ## 4. How to run
 
-1. Navigate to repository root: `cd /home/prakashkalari/Documents/ME/java/DesignPatterns`
-2. Compile: `javac -d bin src/**/**/*.java`
+1. Navigate to repository root:
+   ```bash
+   cd /home/prakashkalari/Documents/ME/java/DesignPatterns
+   ```
+2. Compile all sources:
+   ```bash
+   rm -rf out && mkdir -p out
+   javac -d out $(find src -name '*.java')
+   ```
 3. Run each driver, for example:
-   - `java -cp bin Creational.Singleton.Driver`
-   - `java -cp bin Creational.Factory.Driver`
-   - `java -cp bin Structural.Adapter.PaymentGateway.Driver`
-   - `java -cp bin Structural.Facade.MenuLists.Driver`
-   - `java -cp bin Structural.Facade.ApiGateWay.Driver`
-   - `java -cp bin Behavioural.Observer.Driver`
+   ```bash
+   java -cp out Creational.Singleton.Driver
+   java -cp out Creational.Factory.Driver
+   java -cp out Structural.Adapter.PaymentGateway.Driver
+   java -cp out Structural.Facade.MenuLists.Driver
+   java -cp out Structural.Facade.ApiGateWay.Driver
+   java -cp out Behavioural.Observer.Driver
+   java -cp out Behavioural.State.Driver
+   ```
 
 ---
 
@@ -308,6 +357,6 @@ This pattern demonstrates a subject notifying multiple observers for real-time s
 ## 6. Notes
 
 - This set is intentionally limited and easy to read for newcomers.
-- Recommended next patterns in same structure: `Command`, `TemplateMethod`, `State`, `Composite`, `Proxy`, `Mediator`.
+- Recommended next patterns in same structure: `Command`, `TemplateMethod`, `Composite`, `Proxy`, `Mediator`.
 - Reference books: "Head First Design Patterns" and "Design Patterns: Elements of Reusable Object-Oriented Software" (Gamma et al.).
 - Code uses modern Java features like switch expressions and Bill Pugh Singleton for best practices.
