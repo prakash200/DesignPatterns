@@ -86,7 +86,7 @@ This pattern demonstrates how a central factory can select and instantiate pizza
 
 Definition:
 - Creates families of related products without specifying concrete classes.
-- Each factory is per family (Dominos vs PizzaHut) and produces same product family variants.
+- Each factory is per family (dominos vs PizzaHut) and produces same product family variants.
 
 Ideal Structure:
 1. `AbstractFactory` defines methods like `createChickenPizza()`, `createTomatoPizza()`.
@@ -302,17 +302,46 @@ Repository Implementation details:
 
 Sample flow (from `src/Behavioural/State/Driver.java`):
 ```java
-machine.insertMoney();   // invalid in Idle
-machine.dispense();      // invalid in Idle
+package Behavioural.State;
 
-machine.selectItem();
-machine.dispense();      // invalid before payment
-machine.insertMoney();
-machine.selectItem();    // invalid after payment
-machine.dispense();
+public class Driver {
 
-machine.selectItem();
-machine.cancel();
+    public static void main(String[] args){
+        System.out.println("\n Vending Machine using State Pattern \n");
+
+        VendingMachine machine = new VendingMachine();
+
+        // invalid operations in Idle
+        machine.insertMoney();
+        machine.dispense();
+        System.out.println("--------------------------");
+
+        // select -> pay -> dispense
+        machine.selectItem();
+        machine.insertMoney();
+        machine.dispense();
+        System.out.println("--------------------------------");
+
+        // cancel flow
+        machine.selectItem();
+        machine.cancel();
+    }
+}
+```
+
+Sample output:
+```
+Vending Machine using State Pattern
+
+Select Item First
+No Item Selected
+--------------------------
+Item Selected
+Amount has been Paid
+Item is ready to dispense
+--------------------------------
+Item Selected
+Product cancelled
 ```
 
 This pattern demonstrates how conditional logic like `if(state==...)` can be replaced with polymorphism and state-driven transitions.
@@ -334,10 +363,18 @@ This pattern demonstrates how conditional logic like `if(state==...)` can be rep
    ```bash
    java -cp out Creational.Singleton.Driver
    java -cp out Creational.Factory.Driver
+   java -cp out Creational.AbstractFactory.Driver
+   java -cp out Creational.Builder.Driver
+   
+   java -cp out Structural.Adapter.LegacyCode.Driver
    java -cp out Structural.Adapter.PaymentGateway.Driver
+   java -cp out Structural.Decorator.Driver
    java -cp out Structural.Facade.MenuLists.Driver
    java -cp out Structural.Facade.ApiGateWay.Driver
+   
    java -cp out Behavioural.Observer.Driver
+   java -cp out Behavioural.Strategy.GPS.Driver
+   java -cp out Behavioural.Strategy.PaymentMode.Driver
    java -cp out Behavioural.State.Driver
    ```
 
