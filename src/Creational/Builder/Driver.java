@@ -5,14 +5,14 @@ public class Driver {
         System.out.println("\n Welcome to Builder \n");
         // Brute force : defining all methods in Query with getters,setters and passing all variables
         // like select, from , where etc from here driver class
-        // but we cannot do any validation and also method chaining is also not possible
+        // But we cannot do any validation and also method chaining is also not possible
 
         // Method chaining
-        QueryBuilder queryBuilder = new QueryBuilder()
+        Query query = new QueryBuilder()
                 .select("Select *")
                 .from("from users")
-                .where("where country==India");
-        Query query = queryBuilder.build();
+                .where("where country==India")
+                .build();
 
         System.out.println(query.getQuery());
 

@@ -2,12 +2,6 @@ package Creational.Builder;
 
 public class Query {
 
-    private String select;
-    private String tableName;
-    private String where;
-    private String groupBy;
-    private String orderBy;
-
     private String query;
 
     public String getQuery(){

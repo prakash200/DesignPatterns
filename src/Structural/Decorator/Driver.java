@@ -24,7 +24,7 @@ public class Driver {
         System.out.println(chickenBurger.getCost());
 
         // Wy we have defined type as Burger
-        // Dependency inversion principle and also later if we want to change to pizza decorator
+        // Dependency inversion principle and also later if we want to change to burger decorator
         Burger extraCheeseBurger = new ExtraCheese(chickenBurger);
         System.out.println(extraCheeseBurger.description());
         System.out.println(extraCheeseBurger.getCost());
